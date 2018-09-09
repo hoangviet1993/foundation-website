@@ -20,8 +20,16 @@ jobs:
           command: |
             bash scripts/setup.sh
             bash scripts/setup_gae.sh
+      
+      - restore_cache:
+          key: oppia-tools-cache
 
       - run:
           name: run tests
           command: |
             bash scripts/run_backend_tests.sh --generate_coverage_report
+
+      - save_cache:
+          key: oppia-tools-cache
+          paths:
+            - ../oppia_tools/
