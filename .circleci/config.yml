@@ -15,14 +15,14 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          key: oppia-tools-cache
+
       - run:
           name: install dependencies
           command: |
             bash scripts/setup.sh
             bash scripts/setup_gae.sh
-      
-      - restore_cache:
-          key: oppia-tools-cache
 
       - run:
           name: run tests
