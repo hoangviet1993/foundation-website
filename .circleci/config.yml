@@ -18,6 +18,7 @@ jobs:
       - run:
           name: install dependencies
           command: |
+            pip install codecov
             bash scripts/setup.sh
             bash scripts/setup_gae.sh
 
@@ -26,6 +27,7 @@ jobs:
           command: |
             bash scripts/run_backend_tests.sh --generate_coverage_report
 
-      - store_artifacts:
-          path: test-reports
-          destination: test-reports
+      -run:
+          name: run codecov
+          command: |
+            codecov
