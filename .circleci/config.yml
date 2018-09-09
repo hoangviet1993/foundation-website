@@ -27,7 +27,7 @@ jobs:
           command: |
             bash scripts/run_backend_tests.sh --generate_coverage_report
 
-      -run:
+      - run:
           name: run codecov
           command: |
             codecov
