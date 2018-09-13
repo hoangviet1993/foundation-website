@@ -32,7 +32,10 @@ fi
 echo Checking if pylint_runner is installed in $TOOLS_DIR
 if [ ! -d "$TOOLS_DIR/pylint-runner-0.5.4" ]; then
   echo Installing Pylint_runner
-
+  
+  # curl -o 
+  # https://files.pythonhosted.org/packages/4a/f8/cdfcbacf47ee7533599cf14e8aea6ee9c52b4e6af3198cad98d855b3f4bb/pylint_runner-0.5.4.tar.gz
+  
   pip install pylint_runner==0.5.4 --target="$TOOLS_DIR/pylint-runner-0.5.4"
   touch $TOOLS_DIR/pylint-runner-0.5.4/__init__.py
 fi
@@ -44,6 +47,9 @@ if [ ! -d "$TOOLS_DIR/pydocstyle-2.1.1" ]; then
   tar xzf pydocstyle-2.1.1.tar.gz -C $TOOLS_DIR
   rm pydocstyle-2.1.1.tar.gz
 fi
+
+pip install pydocstyle==2.1.0 --target="$TOOLS_DIR/pydocstyle-2.1.0" --build="$TOOLS_DIR/pydocstyle-2.1.0"
+
 
 # Install pycodestyle.
 echo Checking if pycodestyle is installed in third_party
@@ -57,6 +63,7 @@ fi
 
 # $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
 
+ls -al $TOOLS_DIR/pydocstyle-2.1.0
 $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
 
 $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
