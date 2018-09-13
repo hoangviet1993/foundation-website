@@ -47,7 +47,6 @@ if [ ! -d "$TOOLS_DIR/pydocstyle-2.1.1" ]; then
   tar xzf pydocstyle-2.1.1.tar.gz -C $TOOLS_DIR
   rm pydocstyle-2.1.1.tar.gz
 fi
-rm -r $TOOLS_DIR/pydocstyle-2.1.0" --build="$TOOLS_DIR/pydocstyle-2.1.0
 pip install pydocstyle==2.1.0 --target="$TOOLS_DIR/pydocstyle-2.1.0" --build="$TOOLS_DIR/pydocstyle-2.1.0"
 
 
