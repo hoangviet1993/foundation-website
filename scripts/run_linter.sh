@@ -52,6 +52,12 @@ if [ ! -d "$TOOLS_DIR/pycodestyle-2.4.0" ]; then
   pip install pycodestyle==2.4.0 --target="$TOOLS_DIR/pycodestyle-2.4.0"
 fi
 
+ls -al $TOOLS_DIR/pylint-runner-0.5.4/
+
+ls -al $TOOLS_DIR/pydocstyle-2.1.1/
+
+ls -al $TOOLS_DIR/pycodestyle-2.4.0/
+
 $TOOLS_DIR/pylint-runner-0.5.4/bin/pylint_runner -v || exit 1
 
 $TOOLS_DIR/pydocstyle-2.1.1/bin/pydocstyle -v || exit 1
