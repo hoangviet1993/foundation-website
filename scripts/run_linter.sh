@@ -37,6 +37,7 @@ if [ ! -d "$TOOLS_DIR/pylint-runner-0.5.4" ]; then
   touch $TOOLS_DIR/pylint-runner-0.5.4/__init__.py
 fi
 
+touch $TOOLS_DIR/pydocstyle-2.1.1/__init__.py
 echo Checking if pydocstyle is installed in $TOOLS_DIR
 if [ ! -d "$TOOLS_DIR/pydocstyle-2.1.1" ]; then
   echo Installing Pydocstyle
@@ -45,6 +46,7 @@ if [ ! -d "$TOOLS_DIR/pydocstyle-2.1.1" ]; then
 fi
 
 # Install pycodestyle.
+touch $TOOLS_DIR/pycodestyle-2.4.0/__init__.py
 echo Checking if pycodestyle is installed in third_party
 if [ ! -d "$TOOLS_DIR/pycodestyle-2.4.0" ]; then
   echo Installing Pycodestyle
