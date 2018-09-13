@@ -47,7 +47,7 @@ if [ ! -d "$TOOLS_DIR/pydocstyle-2.1.1" ]; then
   tar xzf pydocstyle-2.1.1.tar.gz -C $TOOLS_DIR
   rm pydocstyle-2.1.1.tar.gz
 fi
-
+rm -r $TOOLS_DIR/pydocstyle-2.1.0" --build="$TOOLS_DIR/pydocstyle-2.1.0
 pip install pydocstyle==2.1.0 --target="$TOOLS_DIR/pydocstyle-2.1.0" --build="$TOOLS_DIR/pydocstyle-2.1.0"
 
 
@@ -64,6 +64,7 @@ fi
 # $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
 
 ls -al $TOOLS_DIR/pydocstyle-2.1.0
+ls -al $HOME
 $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
 
 $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
