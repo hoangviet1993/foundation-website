@@ -47,7 +47,7 @@ fi
 
 # Install pycodestyle.
 echo Checking if pycodestyle is installed in third_party
-if [ ! -d "$TOOLS_DIR/pycodestyle-2.4.0" ]; then
+if [ ! -d "$TOOLS_DIR/pycodestyle-2.3.1" ]; then
   echo Installing Pycodestyle
     
   curl -o pycodestyle-2.3.1.tar.gz -L https://pypi.python.org/packages/e1/88/0e2cbf412bd849ea6f1af1f97882add46a374f4ba1d2aea39353609150ad/pycodestyle-2.3.1.tar.gz
@@ -55,7 +55,6 @@ if [ ! -d "$TOOLS_DIR/pycodestyle-2.4.0" ]; then
   rm pycodestyle-2.3.1.tar.gz
 fi
 
-ls -al ../$HOME
 # $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
 
 # $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/pydocstyle/__main__.py -v || exit 1
