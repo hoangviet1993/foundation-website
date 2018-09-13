@@ -46,17 +46,18 @@ if [ ! -d "$TOOLS_DIR/pydocstyle-2.1.1" ]; then
 fi
 
 # Install pycodestyle.
-touch $TOOLS_DIR/pycodestyle-2.4.0/__init__.py
 echo Checking if pycodestyle is installed in third_party
 if [ ! -d "$TOOLS_DIR/pycodestyle-2.4.0" ]; then
   echo Installing Pycodestyle
     
-  pip install pycodestyle==2.4.0 --target="$TOOLS_DIR/pycodestyle-2.4.0"
+  curl -o pycodestyle-2.3.1.tar.gz -L https://pypi.python.org/packages/e1/88/0e2cbf412bd849ea6f1af1f97882add46a374f4ba1d2aea39353609150ad/pycodestyle-2.3.1.tar.gz
+  tar xzf pycodestyle-2.3.1.tar.gz -C $TOOLS_DIR
+  rm pycodestyle-2.3.1.tar.gz
 fi
 
-ls -al $HOME/.cache/pip/wheels
+ls -al ../$HOME
 # $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
 
-$PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/pydocstyle/__main__.py -v || exit 1
+# $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/pydocstyle/__main__.py -v || exit 1
 
-$PYTHON_CMD $TOOLS_DIR/pycodestyle-2.4.0/pycodestyle.py -v || exit 1
+$PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
