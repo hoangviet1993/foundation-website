@@ -47,8 +47,6 @@ if [ ! -d "$TOOLS_DIR/pydocstyle-2.1.1" ]; then
   tar xzf pydocstyle-2.1.1.tar.gz -C $TOOLS_DIR
   rm pydocstyle-2.1.1.tar.gz
 fi
-pip install pydocstyle==2.1.0 --target="$TOOLS_DIR/pydocstyle-2.1.0" --build="$TOOLS_DIR/pydocstyle-2.1.0"
-
 
 # Install pycodestyle.
 echo Checking if pycodestyle is installed in third_party
@@ -60,13 +58,17 @@ if [ ! -d "$TOOLS_DIR/pycodestyle-2.3.1" ]; then
   rm pycodestyle-2.3.1.tar.gz
 fi
 
-# $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
-
 if [ "$TRAVIS" == 'true' ]; then
+  pip install pylint_runner==0.5.4
   pip install pycodestyle==2.3.1
   pycodestyle -v
+  pylint_runner -v
 fi
 
-$PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
+if [ "$TRAVIS" == 'false']; then
+  # These commands might not be system agnostic.
+  $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
+  $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
+fi
 
 $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
