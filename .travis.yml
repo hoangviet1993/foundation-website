@@ -25,7 +25,6 @@ before_install:
 
 install:
 - pushd $TRAVIS_BUILD_DIR
-- pip install -r ci-requirements.txt
 - source scripts/setup.sh || exit 1
 - source scripts/setup_gae.sh || exit 1
 

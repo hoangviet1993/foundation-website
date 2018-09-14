@@ -17,6 +17,9 @@
 #     bash scripts/run_linter.sh
 
 source $(dirname $0)/setup.sh
+if [ "$TRAVIS" == 'true' ]; then
+  pip install -r ci-linter-requirements.txt
+fi
 set -e
 
 echo Checking if pylint is installed in $TOOLS_DIR
@@ -68,6 +71,5 @@ if [ "$TRAVIS" == 'false' ]; then
   $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
   $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
 fi
-  $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
 
-
+$PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
