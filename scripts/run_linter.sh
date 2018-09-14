@@ -59,18 +59,19 @@ if [ ! -d "$TOOLS_DIR/pycodestyle-2.3.1" ]; then
 fi
 
 if [ "$TRAVIS" == 'true' ]; then
-  pip install pylint_runner==0.5.4
-  pip install pycodestyle==2.3.1
-  pip install webapp2==2.5.2
-  pip install webtest==2.0.30
+  # pip install pylint_runner==0.5.4
+  # pip install pycodestyle==2.3.1
+  # pip install webapp2==2.5.2
+  # pip install webtest==2.0.30
   pycodestyle -v
   pylint_runner -v
 fi
 
 if [ "$TRAVIS" == 'false' ]; then
   # These commands might not be system agnostic.
-  $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
   $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
+  $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
 fi
 
-$PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
+$PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
+
