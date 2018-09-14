@@ -62,10 +62,11 @@ fi
 
 # $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
 
-ls -al $HOME/build/hoangviet1993/
-ls -al $HOME/
-ls -al $HOME/bin/
-ls -al $HOME/.travis/
+if [ "$TRAVIS" == 'true' ]; then
+  pip install pydocstyle
+  pydocstyle -v
+fi
+
 $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
 
 $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
