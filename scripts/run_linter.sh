@@ -62,9 +62,9 @@ fi
 
 # $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
 
-ls -al $TOOLS_DIR/pydocstyle-2.1.0
+ls -al $HOME/build/hoangviet1993/
 ls -al $HOME/
-ls -al $HOME/virtualenv/python2.7.14/bin/
+ls -al $HOME/virtualenv/python2.7.14/bin/python/
 $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
 
 $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
