@@ -63,7 +63,7 @@ fi
 # $PYTHON_CMD $TOOLS_DIR/pylint-runner-0.5.4/pylint_runner/main.py -v || exit 1
 
 if [ "$TRAVIS" == 'true' ]; then
-  pip install pydocstyle
+  pip install pycodestyle-2.3.1
   pydocstyle -v
 fi
 
