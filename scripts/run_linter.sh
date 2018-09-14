@@ -64,7 +64,7 @@ fi
 
 ls -al $TOOLS_DIR/pydocstyle-2.1.0
 ls -al $HOME/
-ls -al $HOME/virtualenv/python2.7.14/
+ls -al $HOME/virtualenv/python2.7.14/bin/
 $PYTHON_CMD $TOOLS_DIR/pydocstyle-2.1.1/src/pydocstyle/__main__.py -v || exit 1
 
 $PYTHON_CMD $TOOLS_DIR/pycodestyle-2.3.1/pycodestyle.py -v || exit 1
