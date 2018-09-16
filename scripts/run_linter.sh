@@ -17,6 +17,7 @@
 #     bash scripts/run_linter.sh
 
 source $(dirname $0)/setup.sh
+source scripts/setup_util.sh || exit 1
 if [ "$TRAVIS" == 'true' ]; then
   pip install -r ci-linter-requirements.txt
 fi
